@@ -36,8 +36,11 @@ class Webhook < ApplicationRecord
 
   def run(payload:)
     from_instance = from_class.new(payload: payload)
+    p from_instance
+    p "payload start"
     return unless from_instance.accept?
 
+    p "accepted"
     mentions = from_instance.mentions.map { |m|
       id_mapping ||= IdMapping.new(ENV.fetch('MENTIONS_MAPPING_FILE_PATH'))
       id_mapping.find(user_name: m, from: from, to: to)

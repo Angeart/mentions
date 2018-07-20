@@ -16,6 +16,7 @@ class IdMapping
   end
 
   def find(user_name:, from:, to:)
+    p ["debug", user_name, from, to]
     if to == 'slack'
       user_name.sub(/\-/, '.')
     else
