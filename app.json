@@ -6,6 +6,7 @@
   ],
   "env": {
     "MENTIONS_MAPPING_FILE_PATH": {
+      "required": false,
       "description": "Your mapping file path"
     },
     "SLACK_WEBHOOK_URL": {
