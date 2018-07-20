@@ -42,7 +42,7 @@ class Webhook < ApplicationRecord
 
     p "accepted"
     mentions = from_instance.mentions.map { |m|
-      id_mapping ||= IdMapping.new(ENV.fetch('MENTIONS_MAPPING_FILE_PATH'))
+      id_mapping ||= IdMapping.new(ENV.fetch('MENTIONS_MAPPING_FILE_PATH', ''))
       id_mapping.find(user_name: m, from: from, to: to)
     }.compact
 
